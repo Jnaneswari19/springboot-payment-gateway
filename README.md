@@ -9,7 +9,7 @@ It includes:
 - **Docker Compose** for one‑command reproducibility
 
 ## 🛠️ Tech Stack
-- Backend: Java 17, Spring Boot 3.2
+- Backend: Java 17, Spring Boot 3.2.1
 - Database: PostgreSQL 15
 - Frontend: React + Vite
 - Containerization: Docker & Docker Compose
@@ -115,7 +115,7 @@ Postgres database `payment_gateway` contains `orders` and `payments` tables crea
 ---
 ## 📦 Final Submission Notes
 
-- ✅ Backend container runs successfully (Spring Boot 3.2., Java 17).
+- ✅ Backend container runs successfully (Spring Boot 3.2.1, Java 17).
 - ✅ Database schema (`orders`, `payments`) auto‑generated and validated in Postgres.
 - ✅ API endpoints (`/orders`, `/payments`, `/list`) tested with curl and return expected JSON.
 - ✅ React dashboard container runs and displays transactions table.
