@@ -1,0 +1,35 @@
+services:
+  pg_gateway:
+    image: postgres:15
+    container_name: pg_gateway
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: payment_gateway
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  gateway_api:
+    build: ./backend
+    container_name: gateway_api
+    depends_on:
+      - pg_gateway
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pg_gateway:5432/payment_gateway
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "8000:8000"
+
+  gateway_dashboard:
+    build: ./frontend/dashboard
+    container_name: gateway_dashboard
+    depends_on:
+      - gateway_api
+    ports:
+      - "3000:80"
+
+volumes:
+  pg_data:
