@@ -105,14 +105,6 @@ Spring Boot backend container starts successfully and Hibernate generates `order
 Postgres database `payment_gateway` contains `orders` and `payments` tables created by Hibernate in the `public` schema.
 
 
-## 📝 Submission Notes
-- ✅ Backend container runs successfully (Spring Boot 3.2.1, Java 17).
-- ✅ API endpoints exposed (`/orders`, `/payments`, `/list`) and tested with curl.
-- ✅ React dashboard container runs and displays transactions table.
-- ✅ Docker Compose ensures reproducibility across platforms.
-- ✅ Database schema (`orders`, `payments`) generated and validated in Postgres.
-- 📝 Reviewer can test the system in under 5 minutes using the walkthrough above.
-
 ## ✨ Highlights
 - Cross‑platform tested (Windows CMD, PowerShell, Linux bash).
 - Fully Dockerized: no manual setup required.
