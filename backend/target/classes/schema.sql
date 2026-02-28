@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS merchants (
 );
 
 CREATE TABLE IF NOT EXISTS orders (
-  id VARCHAR(64) PRIMARY KEY,
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   merchant_id UUID NOT NULL REFERENCES merchants(id),
   amount INTEGER NOT NULL CHECK (amount >= 100),
   currency CHAR(3) DEFAULT 'INR',
@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS orders (
 CREATE INDEX IF NOT EXISTS idx_orders_merchant ON orders(merchant_id);
 
 CREATE TABLE IF NOT EXISTS payments (
-  id VARCHAR(64) PRIMARY KEY,
-  order_id VARCHAR(64) NOT NULL REFERENCES orders(id),
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  order_id UUID NOT NULL REFERENCES orders(id),
   merchant_id UUID NOT NULL REFERENCES merchants(id),
   amount INTEGER NOT NULL,
   currency CHAR(3) DEFAULT 'INR',

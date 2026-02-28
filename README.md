@@ -1,61 +1,4 @@
 # Payment Gateway Project
-
-## 🚀 Overview
-A Dockerized payment gateway system designed with clean architecture and reproducible setup.  
-It includes:
-- **Spring Boot backend** (REST APIs for orders and payments)
-- **Postgres database** (persistent storage)
-- **React dashboard** (transaction visualization)
-- **Docker Compose** for one‑command reproducibility
-
-## 🛠️ Tech Stack
-- Backend: Java 17, Spring Boot 3.2
-- Database: PostgreSQL 15
-- Frontend: React + Vite
-- Containerization: Docker & Docker Compose
-
-## ⚙️ Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/payment-gateway.git
-   cd payment-gateway
-   ```
-2. Start services:
-   ```bash
-   docker-compose up -d
-   ```
-   This launches:
-   - `pg_gateway` → Postgres database
-   - `gateway_api` → Spring Boot backend
-   - `gateway_dashboard` → React frontend
-
-3. Verify backend health:
-   ```bash
-   curl http://localhost:8000/ping
-   ```
-   Expected response:
-   ```json
-   {"status":"ok"}
-   ```
-
-## 📡 API Endpoints
-
-### Orders
-- **Create Order**
-  ```http
-  POST /api/v1/orders
-  ```
-  Example request:
-  ```json
-  {
-    "merchantId": "test-merchant",
-    "amount": 1000
-  }
-  ```
-
-- **List Orders**
-  ```http
-  GET /api/v1/orders/list
   ```
 
 ### Payments
@@ -104,14 +47,6 @@ Spring Boot backend container starts successfully and Hibernate generates `order
 
 Postgres database `payment_gateway` contains `orders` and `payments` tables created by Hibernate in the `public` schema.
 
-
-## 📝 Submission Notes
-- ✅ Backend container runs successfully (Spring Boot 3.2.1, Java 17).
-- ✅ API endpoints exposed (`/orders`, `/payments`, `/list`) and tested with curl.
-- ✅ React dashboard container runs and displays transactions table.
-- ✅ Docker Compose ensures reproducibility across platforms.
-- ✅ Database schema (`orders`, `payments`) generated and validated in Postgres.
-- 📝 Reviewer can test the system in under 5 minutes using the walkthrough above.
 
 ## ✨ Highlights
 - Cross‑platform tested (Windows CMD, PowerShell, Linux bash).
